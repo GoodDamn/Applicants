@@ -1,28 +1,61 @@
 package com.example.shitproject.view_holder
 
 import android.content.Context
+import android.graphics.Bitmap
+import android.util.TypedValue
 import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shitproject.Application
+import com.example.shitproject.extensions.bound
 
 class EventViewHolder(
-    view: View
+    view: CardView,
+    private val mImageViewPreview: ImageView,
+    private val mTextViewName: TextView,
+    private val mTextViewDate: TextView
 ): RecyclerView.ViewHolder(
     view
 ) {
     var date: String = "Date"
+        set(v) {
+            mTextViewDate.text = v
+            field = v
+        }
+
     var name: String = "Name"
+        set(v) {
+            mTextViewName.text = v
+            field = v
+        }
+
+    var image: Bitmap? = null
+        set(v) {
+            mImageViewPreview.setImageBitmap(
+                image
+            )
+            field = v
+        }
+
     companion object {
         fun create(
             context: Context,
             parentWidth: Int
         ): EventViewHolder {
             val cardView = CardView(
+                context
+            )
+
+            val imageViewPreview = ImageView(
+                context
+            )
+
+            val backTextView = View(
                 context
             )
 
@@ -44,35 +77,67 @@ class EventViewHolder(
             textViewName.text = "Load name..."
             textViewDate.text = "Load date..."
 
-            cardView.addView(
-                textViewName,
-                w.toInt(),
-                -2
+            textViewDate.gravity = Gravity
+                .CENTER_HORIZONTAL
+
+            textViewDate.setTextSize(
+                TypedValue.COMPLEX_UNIT_PX,
+                h * 0.05f
+            )
+
+            backTextView.setBackgroundColor(
+                0x99ffffff.toInt()
             )
 
             cardView.addView(
-                textViewDate,
-                w.toInt(),
-                -2
+                imageViewPreview
             )
 
-            val params = FrameLayout.LayoutParams(
+            backTextView.bound(
+                0f,
+                h * 0.5f,
+                -1,
+                -1
+            )
+
+            textViewName.bound(
+                w * 0.1f,
+                h * 0.6f,
+                -1,
+                -1
+            )
+
+            textViewDate.bound(
+                0f,
+                h - textViewDate.textSize,
+                -1,
+                textViewDate.textSize.toInt()
+            )
+
+            cardView.addView(
+                backTextView
+            )
+
+            cardView.addView(
+                textViewName
+            )
+
+            cardView.addView(
+                textViewDate
+            )
+
+            cardView.bound(
+                (parentWidth - w) * 0.5f,
+                w * 0.1f,
                 w.toInt(),
                 h.toInt()
             )
 
-            params.topMargin = (
-                w * 0.1f
-            ).toInt()
-
-            params.leftMargin = (
-                (parentWidth - w) * 0.5f
-            ).toInt()
-
-            cardView.layoutParams = params
-
             return EventViewHolder(
-                cardView
+                cardView,
+                imageViewPreview,
+                textViewName,
+                textViewDate
             )
         }
     }
