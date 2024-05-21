@@ -14,7 +14,8 @@ class EventsAdapter(
         viewType: Int
     ): EventViewHolder {
         return EventViewHolder.create(
-            parent.context
+            parent.context,
+            parent.measuredWidth
         )
     }
 

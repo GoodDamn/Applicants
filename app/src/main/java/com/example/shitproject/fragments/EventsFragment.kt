@@ -27,7 +27,7 @@ class EventsFragment
 
         val data = arrayOf(
             EventModel(
-                "День открытых дверей в Иннополисе",
+                "День открытых  дверей в Иннополисе",
                 "24.04.2025 15:00 UTC+03"
             ),
             EventModel(

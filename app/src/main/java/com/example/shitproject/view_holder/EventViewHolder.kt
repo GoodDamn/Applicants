@@ -19,7 +19,8 @@ class EventViewHolder(
     var name: String = "Name"
     companion object {
         fun create(
-            context: Context
+            context: Context,
+            parentWidth: Int
         ): EventViewHolder {
             val cardView = CardView(
                 context
@@ -33,22 +34,25 @@ class EventViewHolder(
                 context
             )
 
-            val w = Application.WIDTH * 0.5f
+            val w = Application.WIDTH * 0.75f
 
-            val h = w * 0.5f
+            val h = w * 0.75f
 
-            cardView.cardElevation = h * 0.1f
+            cardView.cardElevation = h * 0.05f
             cardView.radius = h * 0.1f
+
+            textViewName.text = "Load name..."
+            textViewDate.text = "Load date..."
 
             cardView.addView(
                 textViewName,
-                -1,
+                w.toInt(),
                 -2
             )
 
             cardView.addView(
                 textViewDate,
-                -1,
+                w.toInt(),
                 -2
             )
 
@@ -57,8 +61,13 @@ class EventViewHolder(
                 h.toInt()
             )
 
-            params.topMargin = (w * 0.1f)
-                .toInt()
+            params.topMargin = (
+                w * 0.1f
+            ).toInt()
+
+            params.leftMargin = (
+                (parentWidth - w) * 0.5f
+            ).toInt()
 
             cardView.layoutParams = params
 
