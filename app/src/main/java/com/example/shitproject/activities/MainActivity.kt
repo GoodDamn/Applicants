@@ -2,6 +2,7 @@ package com.example.shitproject.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.Gravity
 import android.view.View
 import android.widget.Button
@@ -113,10 +114,12 @@ class MainActivity
             Intent.FLAG_ACTIVITY_CLEAR_TOP
         )
 
-        if (email.equals("admin")
-            && password.equals("admin")
+        if (email.contentEquals("admin")
+            && password.contentEquals("admin")
         ) {
             Application.ROLE = Roles.EMPLOYEE
+        } else {
+            Application.ROLE = Roles.APPLICANT
         }
 
         startActivity(

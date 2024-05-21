@@ -3,6 +3,7 @@ package com.example.shitproject.activities
 import android.content.res.ColorStateList
 import android.os.Bundle
 import android.os.PersistableBundle
+import android.util.Log
 import android.view.MenuItem
 import android.widget.FrameLayout
 import android.widget.LinearLayout
@@ -10,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import com.example.shitproject.Application
 import com.example.shitproject.R
+import com.example.shitproject.Roles
 import com.example.shitproject.fragments.AccountFragment
 import com.example.shitproject.fragments.EventsFragment
 import com.example.shitproject.fragments.MajorsFragment
@@ -20,6 +22,10 @@ import com.google.android.material.navigation.NavigationView
 class AccountActivity
 : AppCompatActivity(),
 NavigationBarView.OnItemSelectedListener {
+
+    companion object {
+        private const val TAG = "AccountActivity"
+    }
 
     private var mContainerId = 0
 
@@ -45,8 +51,12 @@ NavigationBarView.OnItemSelectedListener {
             context
         )
 
+        Log.d(TAG, "onCreate: ${Application.ROLE.name}")
+
         navigationView.inflateMenu(
-            R.menu.menu
+            if (Application.ROLE == Roles.APPLICANT)
+                R.menu.menu
+             else R.menu.menu_employee
         )
 
         layout.orientation = LinearLayout
