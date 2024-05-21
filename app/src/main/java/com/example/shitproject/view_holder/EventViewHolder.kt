@@ -2,6 +2,8 @@ package com.example.shitproject.view_holder
 
 import android.content.Context
 import android.graphics.Bitmap
+import android.graphics.drawable.Drawable
+import android.util.Log
 import android.util.TypedValue
 import android.view.Gravity
 import android.view.View
@@ -34,15 +36,17 @@ class EventViewHolder(
             field = v
         }
 
-    var image: Bitmap? = null
+    var image: Drawable? = null
         set(v) {
-            mImageViewPreview.setImageBitmap(
-                image
+            Log.d(TAG, "image: $image")
+            mImageViewPreview.setImageDrawable(
+                v
             )
             field = v
         }
 
     companion object {
+        private const val TAG = "EventViewHolder"
         fun create(
             context: Context,
             parentWidth: Int
@@ -90,7 +94,9 @@ class EventViewHolder(
             )
 
             cardView.addView(
-                imageViewPreview
+                imageViewPreview,
+                -1,
+                -1
             )
 
             backTextView.bound(

@@ -45,7 +45,7 @@ class AccountFragment
         editFirstName.hint = "First name"
         editMiddleName.hint = "Middle name"
         editSecondName.hint = "Second name"
-        editPassport.hint = "Passport(SS SS NNNNNN)"
+        editPassport.hint = "Passport (SS SS NNNNNN)"
 
         layout.addView(
             editFirstName,
