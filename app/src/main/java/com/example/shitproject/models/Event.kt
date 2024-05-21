@@ -1,9 +1,8 @@
 package com.example.shitproject.models
 
-import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
 
-data class EventModel(
+data class Event(
     val preview: Drawable?,
     val name: String,
     val date: String

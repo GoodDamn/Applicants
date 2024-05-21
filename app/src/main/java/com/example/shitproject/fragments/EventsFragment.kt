@@ -1,21 +1,16 @@
 package com.example.shitproject.fragments
 
-import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
-import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shitproject.R
 import com.example.shitproject.adapter.EventsAdapter
-import com.example.shitproject.models.EventModel
-import kotlin.math.log
+import com.example.shitproject.models.Event
 
 class EventsFragment
 : Fragment() {
@@ -37,7 +32,7 @@ class EventsFragment
         )
         
         val data = arrayOf(
-            EventModel(
+            Event(
                 ContextCompat.getDrawable(
                     context,
                     R.drawable.b
@@ -45,7 +40,7 @@ class EventsFragment
                 "День открытых  дверей в Иннополисе",
                 "24.04.2025 15:00 UTC+03"
             ),
-            EventModel(
+            Event(
                 ContextCompat.getDrawable(
                     context,
                     R.drawable.ic_events
@@ -53,7 +48,7 @@ class EventsFragment
                 "Экскурсия во VK",
                 "22.04.2025 12:40 UTC+03"
             ),
-            EventModel(
+            Event(
                 ContextCompat.getDrawable(
                     context,
                     R.drawable.logo

@@ -2,22 +2,17 @@ package com.example.shitproject.adapter
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.shitproject.models.Event
-import com.example.shitproject.view_holder.EventViewHolder
+import com.example.shitproject.models.Major
+import com.example.shitproject.view_holder.MajorViewHolder
 
-class EventsAdapter(
-    private val mViewModel: Array<Event>
-): RecyclerView.Adapter<EventViewHolder>() {
-
-    companion object {
-        private const val TAG = "EventsAdapter"
-    }
-
+class MajorsAdapter(
+    private val mViewModel: Array<Major>
+): RecyclerView.Adapter<MajorViewHolder>() {
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): EventViewHolder {
-        return EventViewHolder.create(
+    ): MajorViewHolder {
+        return MajorViewHolder.create(
             parent.context,
             parent.measuredWidth
         )
@@ -28,13 +23,11 @@ class EventsAdapter(
     }
 
     override fun onBindViewHolder(
-        holder: EventViewHolder,
+        holder: MajorViewHolder,
         position: Int
     ) {
         mViewModel[position].let {
-            holder.date = it.date
             holder.name = it.name
-            holder.image = it.preview
         }
     }
 
