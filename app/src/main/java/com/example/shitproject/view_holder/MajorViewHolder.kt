@@ -19,6 +19,7 @@ class MajorViewHolder(
             mTextViewName.text = v
             field = v
         }
+
     companion object {
         fun create(
             context: Context,

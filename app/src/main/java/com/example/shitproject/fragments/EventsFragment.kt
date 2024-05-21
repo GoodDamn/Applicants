@@ -51,7 +51,7 @@ class EventsFragment
             Event(
                 ContextCompat.getDrawable(
                     context,
-                    R.drawable.logo
+                    R.drawable.b
                 ),
                 "Экскурсия в LimeX",
                 "27.04.2024 15:00 UTC+03"
