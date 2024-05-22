@@ -1,19 +1,18 @@
 package com.example.shitproject.view_holder
 
 import android.content.Context
-import android.graphics.Bitmap
+import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.util.Log
 import android.util.TypedValue
 import android.view.Gravity
 import android.view.View
-import android.view.ViewGroup
-import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shitproject.Application
+import com.example.shitproject.activities.details.EventDetailsActivity
 import com.example.shitproject.extensions.bound
 
 class EventViewHolder(
@@ -138,6 +137,15 @@ class EventViewHolder(
                 w.toInt(),
                 h.toInt()
             )
+
+            cardView.setOnClickListener {
+                context.startActivity(
+                    Intent(
+                        context,
+                        EventDetailsActivity::class.java
+                    )
+                )
+            }
 
             return EventViewHolder(
                 cardView,

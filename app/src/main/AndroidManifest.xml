@@ -24,6 +24,9 @@
         <activity android:name=".activities.AccountActivity"
             android:exported="false"/>
 
+        <activity android:name=".activities.details.EventDetailsActivity"
+            android:exported="false"/>
+
     </application>
 
 </manifest>
