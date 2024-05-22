@@ -84,6 +84,14 @@ class EventViewHolder(
             textViewName.text = "Load name..."
             textViewDate.text = "Load date..."
 
+            textViewName.setTextColor(
+                0xff000000.toInt()
+            )
+
+            textViewDate.setTextColor(
+                0xff000000.toInt()
+            )
+
             textViewDate.gravity = Gravity
                 .CENTER_HORIZONTAL
 
@@ -93,7 +101,7 @@ class EventViewHolder(
             )
 
             backTextView.setBackgroundColor(
-                0x99ffffff.toInt()
+                0xddffffff.toInt()
             )
 
             cardView.addView(
