@@ -24,8 +24,11 @@
         <activity android:name=".activities.AccountActivity"
             android:exported="false"/>
 
-        <activity android:name=".activities.details.EventDetailsActivity"
+        <activity android:name=".activities.details.event.EventDetailsActivity"
             android:exported="false"/>
+
+        <activity android:name=".activities.details.major.MajorDetailsActivity"/>
+        <activity android:name=".activities.details.major.MajorEditActivity"/>
 
     </application>
 

@@ -12,7 +12,7 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shitproject.Application
-import com.example.shitproject.activities.details.EventDetailsActivity
+import com.example.shitproject.activities.details.event.EventDetailsActivity
 import com.example.shitproject.extensions.bound
 
 class EventViewHolder(

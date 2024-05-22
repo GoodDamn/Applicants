@@ -1,11 +1,16 @@
 package com.example.shitproject.view_holder
 
 import android.content.Context
+import android.content.Intent
 import android.util.TypedValue
 import android.view.Gravity
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.shitproject.Application
+import com.example.shitproject.Roles
+import com.example.shitproject.activities.details.major.MajorDetailsActivity
+import com.example.shitproject.activities.details.major.MajorEditActivity
 import com.example.shitproject.extensions.bound
 
 class MajorViewHolder(
@@ -65,6 +70,17 @@ class MajorViewHolder(
             cardView.addView(
                 textViewName
             )
+
+            cardView.setOnClickListener {
+                context.startActivity(
+                    Intent(
+                        context,
+                        if (Application.ROLE == Roles.APPLICANT)
+                            MajorDetailsActivity::class.java
+                        else MajorEditActivity::class.java
+                    )
+                )
+            }
 
             return MajorViewHolder(
                 cardView,
