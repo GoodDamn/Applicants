@@ -12,7 +12,11 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shitproject.Application
+import com.example.shitproject.Roles
 import com.example.shitproject.activities.details.event.EventDetailsActivity
+import com.example.shitproject.activities.details.event.EventEditActivity
+import com.example.shitproject.activities.details.major.MajorDetailsActivity
+import com.example.shitproject.activities.details.major.MajorEditActivity
 import com.example.shitproject.extensions.bound
 
 class EventViewHolder(
@@ -142,7 +146,9 @@ class EventViewHolder(
                 context.startActivity(
                     Intent(
                         context,
-                        EventDetailsActivity::class.java
+                        if (Application.ROLE == Roles.APPLICANT)
+                            EventDetailsActivity::class.java
+                        else EventEditActivity::class.java
                     )
                 )
             }

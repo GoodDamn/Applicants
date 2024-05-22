@@ -30,6 +30,8 @@
         <activity android:name=".activities.details.major.MajorDetailsActivity"/>
         <activity android:name=".activities.details.major.MajorEditActivity"/>
 
+        <activity android:name=".activities.details.event.EventEditActivity"/>
+
     </application>
 
 </manifest>
