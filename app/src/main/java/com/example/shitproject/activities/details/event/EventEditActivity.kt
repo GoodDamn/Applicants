@@ -1,4 +1,4 @@
-package com.example.shitproject.activities.details.major
+package com.example.shitproject.activities.details.event
 
 import android.os.Bundle
 import android.util.TypedValue
@@ -15,7 +15,7 @@ import com.example.shitproject.Application
 import com.example.shitproject.R
 import com.example.shitproject.Roles
 
-class MajorEditActivity
+class EventEditActivity
 : AppCompatActivity() {
 
     override fun onCreate(
@@ -64,8 +64,8 @@ class MajorEditActivity
             0xff000000.toInt()
         )
 
-        textViewName.hint = "XX.XX.XX Name"
-        textViewDescription.hint = "major description"
+        textViewName.hint = "Event Name"
+        textViewDescription.hint = "Event description"
 
         layout.addView(
             imageViewPreview,
